@@ -1,5 +1,5 @@
 
-{% raw %}
+
 # Jekyll Notes
 
 ## 1. Build
@@ -290,5 +290,3 @@ You also need a way to navigate to this page through the main navigation. Open `
 - name: Blog
   link: /blog.html
 ```
-{% endraw %}
-

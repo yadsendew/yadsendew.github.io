@@ -1,5 +1,3 @@
-
-
 # Jekyll Notes
 
 ## 1. Build

@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Jekyll Notes</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+  <body>
+    <nav>
+  
+    <a href="/" >Home</a>
+  
+    <a href="/about.html" >About</a>
+  
+    <a href="/blog.html" >Blog</a>
+  
+</nav>
+    <h1>Jekyll Notes</h1>
+<p>22 Dec 2019 - </p>
+
+
+<h1 id="jekyll-notes">Jekyll Notes</h1>
+
+<h2 id="1-build">1. Build</h2>
+
+<p>We need Jekyll to build the site before we can view it:
+*<code class="language-plaintext highlighter-rouge">jekyll build</code> - Builds the site and outputs a static site to a directory called <code class="language-plaintext highlighter-rouge">_site</code>.
+*<code class="language-plaintext highlighter-rouge">jekyll serve</code> - Does the same thing except it rebuilds any time you make a change and runs a local web server at <code class="language-plaintext highlighter-rouge">http://localhost:4000</code>.</p>
+
+<h2 id="2-liquid">2. Liquid</h2>
+
+<p>Liquid is a templating language which has three main parts: objects, tags and filters.</p>
+
+<h3 id="21-objects">2.1 Objects:</h3>
+
+<p>Objects tell Liquid where to output content. They’re denoted by double curly braces: <code class="language-plaintext highlighter-rouge">{{</code> and <code class="language-plaintext highlighter-rouge">}}</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ page.title }}
+</code></pre></div></div>
+
+<p>Outputs a variable called <code class="language-plaintext highlighter-rouge">page.title</code> on the page.</p>
+
+<h3 id="22-tags">2.2 Tags:</h3>
+
+<p>Tags create the logic and control flow for templates. They are denoted by curly braces and percent signs: <code class="language-plaintext highlighter-rouge">{%</code> and <code class="language-plaintext highlighter-rouge">%}</code>. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if page.show_sidebar %}
+  &lt;div class="sidebar"&gt;
+    sidebar content
+  &lt;/div&gt;
+{% endif %}
+</code></pre></div></div>
+
+<p>Outputs the sidebar if <code class="language-plaintext highlighter-rouge">page.show_sidebar</code> is true.</p>
+
+<h3 id="23-filters">2.3 Filters:</h3>
+
+<p>Filters change the output of a Liquid object. They are used within an output and are separated by a <code class="language-plaintext highlighter-rouge">|</code>. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "hi" | capitalize }}
+</code></pre></div></div>
+
+<p>Outputs <code class="language-plaintext highlighter-rouge">Hi</code>.</p>
+
+<h2 id="3-front-matter">3. Front Matter</h2>
+
+<p>Front matter is used to set variables for the page. It sits between two triple-dashed lines at the top of a file. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+my_number: 5
+---
+</code></pre></div></div>
+
+<p>Front matter variables are available in Liquid under the <code class="language-plaintext highlighter-rouge">page</code> variable. For example to output the variable above you would use:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ page.my_number }}
+</code></pre></div></div>
+
+<p><strong>Use front matter</strong>. Let’s change the <code class="language-plaintext highlighter-rouge">&lt;title&gt;</code> on your site to populate using front matter:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+title: Home
+---
+&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;{{ page.title }}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;{{ "Hello World!" | downcase }}&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<h2 id="4-layouts---bố-cục">4. Layouts - Bố cục:</h2>
+
+<p>Layouts live in a directory called <code class="language-plaintext highlighter-rouge">_layouts</code>
+To have <code class="language-plaintext highlighter-rouge">index.html</code> use layout <code class="language-plaintext highlighter-rouge">default</code>, set a <code class="language-plaintext highlighter-rouge">layout</code> variable in <strong>front matter</strong>. The layout will wrap around the content of the page <code class="language-plaintext highlighter-rouge">index.html</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: default
+title: Home
+---
+&lt;h1&gt;{{ "Hello World!" | downcase }}&lt;/h1&gt;
+</code></pre></div></div>
+
+<p>Create your <code class="language-plaintext highlighter-rouge">default</code> layout at <code class="language-plaintext highlighter-rouge">_layouts/default.html</code> with the following content:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;{{ page.title }}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    {{ content }}
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<p>There’s <strong>no front matter</strong> and the content of the page is replaced with a <code class="language-plaintext highlighter-rouge">content</code> variable. <code class="language-plaintext highlighter-rouge">content</code> is a special variable which is replaced by content of <code class="language-plaintext highlighter-rouge">index.html</code>.</p>
+
+<h2 id="5-includes">5. Includes:</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">include</code> tag allows you to <strong>include content from another file</strong> stored in an <code class="language-plaintext highlighter-rouge">_includes</code> folder.
+Create a file for the navigation at <code class="language-plaintext highlighter-rouge">_includes/navigation.html</code> with the following content:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;nav&gt;
+  &lt;a href="/"&gt;Home&lt;/a&gt;
+  &lt;a href="/about.html"&gt;About&lt;/a&gt;
+&lt;/nav&gt;
+</code></pre></div></div>
+
+<p>Try using the <code class="language-plaintext highlighter-rouge">include</code> tag to add the navigation to<code class="language-plaintext highlighter-rouge"> _layouts/default.html</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;{{ page.title }}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    {% include navigation.html %}
+    {{ content }}
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<h2 id="current-page-highlighting">Current page highlighting</h2>
+
+<p>Jekyll has useful variables available one of which is <code class="language-plaintext highlighter-rouge">page.url</code>, it returns current page’s URL. Edit <code class="language-plaintext highlighter-rouge">_includes/navigation.html</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;nav&gt;
+  &lt;a href="/" {% if page.url == "/" %}style="color: red;"{% endif %}&gt;
+    Home
+  &lt;/a&gt;
+  &lt;a href="/about.html" {% if page.url == "/about.html" %}style="color: red;"{% endif %}&gt;
+    About
+  &lt;/a&gt;
+&lt;/nav&gt;
+</code></pre></div></div>
+
+<h2 id="6-data-files">6. Data Files:</h2>
+
+<p>Jekyll supports loading data from YAML, JSON, and CSV files located in a <code class="language-plaintext highlighter-rouge">_data</code> directory.</p>
+
+<h3 id="data-file-usage">Data file usage</h3>
+
+<p>YAML is a format that’s common in the Ruby ecosystem. You’ll use it to store an array of navigation items each with a <code class="language-plaintext highlighter-rouge">name</code> and <code class="language-plaintext highlighter-rouge">link</code>.
+At _data/navigation.yml, creates:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- name: Home
+  link: /
+- name: About
+  link: /about.html
+</code></pre></div></div>
+
+<p>Jekyll makes this data file available to you at <code class="language-plaintext highlighter-rouge">site.data.navigation</code>
+Instead of outputting each link in <code class="language-plaintext highlighter-rouge">_includes/navigation.html</code>, now you can iterate over the data file instead:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;nav&gt;
+  {% for item in site.data.navigation %}
+    &lt;a href="{{ item.link }}" {% if page.url == item.link %}style="color: red;"{% endif %}&gt;
+      {{ item.name }}
+    &lt;/a&gt;
+  {% endfor %}
+&lt;/nav&gt;
+</code></pre></div></div>
+
+<h2 id="7-assets">7. Assets:</h2>
+
+<h3 id="sass">Sass</h3>
+
+<p>First create a Sass file at /assets/css/styles.scss with the following content:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+---
+@import "main";
+</code></pre></div></div>
+
+<p>The empty front matter at the top tells Jekyll it needs to process the file. The <code class="language-plaintext highlighter-rouge">@import "main"</code> tells Sass to look for a file called <code class="language-plaintext highlighter-rouge">main.scss</code> in the sass directory (<code class="language-plaintext highlighter-rouge">_sass/</code>).</p>
+
+<p>At this stage you’ll just have a main css file. For larger projects, this is a great way to keep your CSS organized.</p>
+
+<p>Create a Sass file at <code class="language-plaintext highlighter-rouge">/_sass/main.scss</code> with the following content:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.current {
+  color: green;
+}
+</code></pre></div></div>
+
+<p>Edit <code class="language-plaintext highlighter-rouge">_includes/navigation.html</code> to:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;nav&gt;
+  {% for item in site.data.navigation %}
+    &lt;a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}&gt;{{ item.name }}&lt;/a&gt;
+  {% endfor %}
+&lt;/nav&gt;
+</code></pre></div></div>
+
+<p>You’ll need to reference the stylesheet in your layout. Add <code class="language-plaintext highlighter-rouge">&lt;link rel="stylesheet" href="/assets/css/styles.css"&gt;</code> to <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> tag of <code class="language-plaintext highlighter-rouge">_layouts/default.html</code></p>
+
+<h2 id="8-blogging">8. Blogging:</h2>
+
+<h3 id="posts">Posts:</h3>
+
+<p>Blog posts live in a folder called <code class="language-plaintext highlighter-rouge">_posts</code>. The filename for posts have a special format: the publish date, then a title, followed by an extension. Create your first post at <code class="language-plaintext highlighter-rouge">_posts/2018-08-20-bananas.md</code> with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: post
+author: jill
+---
+A banana is an edible fruit – botanically a berry – produced by several kinds
+of large herbaceous flowering plants in the genus Musa.
+
+In some countries, bananas used for cooking may be called "plantains",
+distinguishing them from dessert bananas. The fruit is variable in size, color,
+and firmness, but is usually elongated and curved, with soft flesh rich in
+starch covered with a rind, which may be green, yellow, red, purple, or brown
+when ripe.
+</code></pre></div></div>
+
+<h3 id="layout-for-posts">Layout for posts:</h3>
+
+<p>Create it at _layouts/post.html with the following content. Notice this is an example of layout inheritance (from layout <code class="language-plaintext highlighter-rouge">default</code>):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: default
+---
+&lt;h1&gt;{{ page.title }}&lt;/h1&gt;
+&lt;p&gt;{{ page.date | date_to_string }} - {{ page.author }}&lt;/p&gt;
+
+{{ content }}
+</code></pre></div></div>
+
+<h3 id="list-posts">List posts:</h3>
+
+<p>Jekyll makes posts available at <code class="language-plaintext highlighter-rouge">site.posts</code>. Create <code class="language-plaintext highlighter-rouge">blog.html</code> in your root (<code class="language-plaintext highlighter-rouge">/blog.html</code>) with the following content:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: default
+title: Blog
+---
+&lt;h1&gt;Latest Posts&lt;/h1&gt;
+
+&lt;ul&gt;
+  {% for post in site.posts %}
+    &lt;li&gt;
+      &lt;h2&gt;&lt;a href="{{ post.url }}"&gt;{{ post.title }}&lt;/a&gt;&lt;/h2&gt;
+      &lt;p&gt;{{ post.excerpt }}&lt;/p&gt;
+    &lt;/li&gt;
+  {% endfor %}
+&lt;/ul&gt;
+</code></pre></div></div>
+
+<p>There’s a few things to note with this code:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">post.url</code> is automatically set by Jekyll to the output path of the post</li>
+  <li><code class="language-plaintext highlighter-rouge">post.title</code> is pulled from the post filename and can be overridden by setting <code class="language-plaintext highlighter-rouge">title</code> in front matter</li>
+  <li><code class="language-plaintext highlighter-rouge">post.excerpt</code> is the first paragraph of content by default.</li>
+</ul>
+
+<p>You also need a way to navigate to this page through the main navigation. Open <code class="language-plaintext highlighter-rouge">_data/navigation.yml</code> and add an entry for the blog page:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- name: Home
+  link: /
+- name: About
+  link: /about.html
+- name: Blog
+  link: /blog.html
+</code></pre></div></div>
+
+
+  </body>
+</html>

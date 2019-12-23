@@ -15,3 +15,5 @@ exclude: [
   posts,
   markdown
 ]
+# Add variables here, it will access by {{ site.myvariable }}
+# myvariable: 5

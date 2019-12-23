@@ -1,5 +1,17 @@
+# After editing this configuration
+# Run bundle exec jekyll serve
 title: Phat Ng Luu
 markdown: CommonMarkGhPages
 commonmark:
   options: ["SMART", "FOOTNOTES"]
   extensions: ["strikethrough", "autolink", "table", "tagfilter"]
+
+
+# Exclude from processing
+# The following items will not be processed:
+exclude: [
+  Gemfile,
+  Gemfile.lock,
+  posts,
+  markdown
+]

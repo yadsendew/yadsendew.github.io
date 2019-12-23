@@ -1139,18 +1139,50 @@ pre[class*="language-"] {
   <style></style>
 </head>
 <body>
-    <article class="markdown-body">
-        <h1>Bananas</h1>
-        <p>20 Aug 2018 - jill</p>
+  <article class="markdown-body">
+  <h1 class="atx" id="sql-query">SQL Query</h1>
+<h2 class="atx" id="nested-queries">Nested queries</h2>
+<p><img alt="" src="media/15769695984270/15766624229412.jpg"></p>
+<h3 class="atx" id="correlated-nested-queries">Correlated nested queries</h3>
+<p><img alt="Screen Shot 2019-12-18 at 10.45.50" src="media/15769695984270/Screen%20Shot%202019-12-18%20at%2010.45.50.png"></p>
+<h3 class="atx" id="the-exists-function">The EXISTS function</h3>
+<p>used to check whether the result of a correlated nested query is empty (no tuples) or not
+<img alt="" src="media/15769695984270/15766630548457.jpg">
+<img alt="" src="media/15769695984270/15766631010888.jpg"></p>
+<h2 class="atx" id="insert-into">INSERT INTO</h2>
+<pre><code class="fenced-code-block">INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+</code></pre>
+<p>Attributes with NULL values can be left out. But when tuple contains many NULL. We should:</p>
+<pre><code class="fenced-code-block">INSERT INTO
+EMPLOYEE(fname, lname, snn)
+VALUES('Richard', 'Marini', '655584758');
+</code></pre>
+<p>We can insert result table to new table:</p>
+<pre><code class="fenced-code-block">create table DEPTS_INFO ('DEPT_NAME     VARCHAR(10),
+                          NO_OF_EMPS    INTEGER,
+                          TOTAL_SAL     INTEGER);
+insert into DEPTS_INFO (DEPT_NAME, NO_OF_EMPS, TOTAL_SAL)
+select      dname, count(*), sum(salary)
+from        department, employee
+where       dnumber=dno
+group by    dname;
+</code></pre>
+<h2 class="atx" id="delete">DELETE</h2>
+<p>removes tuples from a relation using WHERE to select the tuples to be deleted</p>
+<pre><code class="fenced-code-block">delete from     employee
+where           lname='Brown'
 
-        <p>A banana is an edible fruit – botanically a berry – produced by several kinds
-of large herbaceous flowering plants in the genus Musa.</p>
-<p>In some countries, bananas used for cooking may be called “plantains”,
-distinguishing them from dessert bananas. The fruit is variable in size, color,
-and firmness, but is usually elongated and curved, with soft flesh rich in
-starch covered with a rind, which may be green, yellow, red, purple, or brown
-when ripe.</p>
+delete from     employee
+where           dno in
+                (select     dnumber
+                 from       department
+                 where      dname='Research')
+</code></pre>
+<p>To delete all tuples, just left WHERE missing</p>
+<pre><code class="fenced-code-block">delete from  employee
+</code></pre>
 
-    </article>
+  </article>
 </body>
 </html>

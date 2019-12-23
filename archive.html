@@ -1,0 +1,7 @@
+---
+---
+{% for article in site.data.listArticle %}
+    <li>
+      <a href="{{ article.link }}">{{ article.title }}</a>
+    </li>
+  {% endfor %}

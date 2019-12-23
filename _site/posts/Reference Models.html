@@ -1139,18 +1139,61 @@ pre[class*="language-"] {
   <style></style>
 </head>
 <body>
-    <article class="markdown-body">
-        <h1>Bananas</h1>
-        <p>20 Aug 2018 - jill</p>
+  <article class="markdown-body">
+  <h1 class="atx" id="reference-models">Reference Models</h1>
+<p>Because of the many requirements that computer networks need to satisfy, communication in into these is subdivided into layers within reference models. The three popular reference models are the <strong>TCP/IP model</strong>, the <strong>OSI reference model</strong> and <strong>hybrid reference model</strong>.</p>
+<h2 class="atx" id="1-tcpip-reference-model">1. TCP/IP Reference Model</h2>
+<p>It divides the tasks of communication into four consecutive layers. For each one of the four layers, multiple protocols do exist.  </p>
+<p><img alt="Table 4.1" src="media/15769695984188/15768777463702.jpg">      </p>
+<p>Each layer adds additional header information to the message (see Figure 4.1). Some protocols (e.g., Ethernet) add not only a header in the Link Layer but also a trailer at the end of the message. The receiver analyzes the header (and trailer) on the same layer (see Figure 4.2).  </p>
+<p><img alt="" src="media/15769695984188/15768793732702.jpg">
+<img alt="Figure 4.2" src="media/15769695984188/15768793427132.jpg"></p>
+<p><strong>Hybrid reference model</strong> is an extension of the TCP/IP model <em>split the Link Layer (Network Access Layer) into two layers</em> because they have entirely diﬀerent tasks.</p>
+<h2 class="atx" id="2-hybrid-reference-model">2. Hybrid Reference Model</h2>
+<p>The names of the top two layers and the tasks of the top three layers are identical to the layers of the TCP/IP reference model (see Figure 4.3). The Internet Layer in the TCP/IP reference model and the Network Layer in the hybrid reference model diﬀer only in the name.</p>
+<p><img alt="" src="media/15769695984188/15768796319012.jpg"></p>
+<h3 class="atx" id="21-data-link-layer-4th-layer">2.1 Data Link Layer (4th Layer)</h3>
+<p>DDL do these tasks:</p>
+<ul>
+<li>Controlling the access to the transmission medium.</li>
+<li>At the <strong>sender</strong>, the DDL <strong>packs the</strong> <em>(Network Layer)</em> <strong>packets into frames</strong> and <strong>transmits</strong> them with the desired reliability <em>from one network device to another</em> <strong>via a physical network</strong>.</li>
+<li>At the receiver, the DDL <strong>identiﬁes the frames</strong> in the bit stream of the Physical Layer. </li>
+<li>The delivery of frames on a physical network requires physical addresses (MAC address), whose format deﬁnes the DLL. </li>
+<li>Detecting errors occur during the frames transmission, the DLL protocols <strong>attach a checksum</strong> to every frame, frames with <strong>errors can detected and thrown away</strong> by the receiver.</li>
+<li>In the Data Link Layer, frames can only be exchanged <strong>between network devices</strong> that are <strong>connected to the same physical network</strong>. For diﬀerent physical networks: done by using Bridges and Switches (Multiport Bridges).</li>
+</ul>
+<h3 class="atx" id="22-physical-layer-5th-layer">2.2 Physical Layer (5th Layer)</h3>
+<ul>
+<li>The Physical Layer deals with the characteristics of the various transmission media. </li>
+<li>This layer is responsible for the transfer of ones and zeros. </li>
+<li>Here, the physical connection to the medium and the conversion of the data into signals takes place. </li>
+<li>Protocols of the physical layer deﬁne how many bits can be sent per second and whether the transmission can take place simultaneously in both directions.  </li>
+</ul>
+<h3 class="atx" id="23-network-layer--3rd-layer--internet-layer-in-tcpip-model">2.3 Network Layer (= 3rd Layer = Internet Layer in TCP/IP model)</h3>
+<p>NL does these tasks:</p>
+<ul>
+<li>forward packets between logical networks over physical network segments. For this internetworking, the network layer deﬁnes logical addresses (IP addresses).</li>
+<li>At the sender, the NL packs the segments of the Transport Layer into packets. At the receiver, the Network Layer detects and unpacks the Packets in the frames of the DDL.</li>
+<li>Routers limit logical subnets. Forwarding packets on their way from the sender to the destination, which is called routing, is one task of this layer. Usually, the connectionless Internet Protocol (IP) is used. Each IP packet is independently routed to its destination, and the path is not recorded. Other Network Layer protocols such as IPX have been replaced mainly by IP.</li>
+</ul>
+<h3 class="atx" id="24-transport-layer">2.4 Transport Layer</h3>
+<p>The Transport Layer enables the transport of Segments between processes on diﬀerent devices via so-called end-to-end protocols.
+At the sender, the Transport Layer packs the data of the Application Layer into segments. At the receiver, the Transport Layer detects and unpacks the segments inside the packets from the Network Layer.
+While the Data Link Layer and the Network Layer address network devices in a physical way, in this layer the running processes are addressed with port numbers. The Transport Layer, therefore, ensures that the data in the Network Layer is delivered correctly to the correct applications. It splits the data at the sender, using Transport Layer protocols, into smaller parts (segments), which the protocol of the Network Layer can forward. The size of the segments corresponds to the maximum size of the payload of a packet in the Network Layer.</p>
+<p>Transport Layer protocols implement diﬀerent forms of communication. Connectionless communication works analogously to a mailbox. The sender sends messages without prior connection establishment. With connectionless communication, the Transport Layer does not provide a way to validate that a segment arrives at the destination. If validation is required, it must be carried out in the Application Layer. The lack of a delivery guarantee is one disadvantage of this form of communication. One beneﬁt is the better data rate because less overhead arises.</p>
+<p>One alternative is using connection-oriented communication. This works in the same way as the telephone. A connection is established between sender and receiver before data is exchanged. The connection remains active even if no data is transferred. As soon as all data has been exchanged, one of the communication partners terminates the connection.</p>
+<p>Connection-oriented communication enables ﬂow control and congestion control, in which the receiver controls the transmission speed of the sender. Depending on the Transport Layer protocol used, the Transport Layer also ensures loss-free delivery of the segments. This is equivalent to a delivery guarantee. The correct order of the segments at the receiver is also guaranteed by this form of communication.</p>
+<p>Examples of Transport Layer protocols are the connectionless User Datagram Protocol (UDP) and the connection-oriented Transport Control Protocol (TCP).</p>
+<h3 class="atx" id="25-application-layer">2.5 Application Layer</h3>
+<p>The Application Layer contains all protocols that interact with the user application programs (e.g., browser or email client). Here, the messages (e.g., HTML pages or emails) are located according to the respective Application Layer protocol. Examples: <em>HTTP, FTP, SMTP, POP3, DNS, SSH, and Telnet.</em></p>
+<h2 class="atx" id="3-how-communication-works">3. How Communication works</h2>
+<p>The communication ﬂow is demonstrated by using the hybrid reference model (see Figure 4.4).  </p>
+<p><img alt="" src="media/15769695984188/15768851014228.jpg"></p>
+<p><strong>Vertical communication</strong> describes the process in which the data passes through the layers of the reference model used. A message is packed layer by layer from the top layer to the bottom layer and extracted by the receiver in the reverse order from the bottom layer to the top layer. The sender adds a header to the data in each layer and a trailer in the Data Link Layer. These additional headers and trailers are analyzed and removed in the respective layers by the receiver. These operations are called encapsulation and de-encapsulation.
+In <strong>horizontal communication</strong>, sender and receiver each use the same protocol functions on the same layers (see Figure 4.2).<br><img alt="Figure 4.2" src="media/15769695984188/15768793427132.jpg"></p>
+<h2 class="atx" id="4-osi-reference-model">4. OSI Reference Model</h2>
+<p><img alt="" src="media/15769695984188/15768853864946.jpg"></p>
 
-        <p>A banana is an edible fruit – botanically a berry – produced by several kinds
-of large herbaceous flowering plants in the genus Musa.</p>
-<p>In some countries, bananas used for cooking may be called “plantains”,
-distinguishing them from dessert bananas. The fruit is variable in size, color,
-and firmness, but is usually elongated and curved, with soft flesh rich in
-starch covered with a rind, which may be green, yellow, red, purple, or brown
-when ripe.</p>
-
-    </article>
+  </article>
 </body>
 </html>

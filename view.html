@@ -1,0 +1,20 @@
+---
+layout: default
+title: Blog
+---
+
+    <div>
+      {% for article in site.data.listArticle %}
+              <a href="{{ article.link }}" target="iframe">{{ article.title }}</a><br>
+      {% endfor %}
+    </div>
+    <div>
+      <iframe src="" name="iframe" frameborder="1" style="overflow-x:hidden;overflow-y:hidden;height:90%;width:100%;position:absolute;"></iframe>
+    </div>
+    <div>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+                                                   

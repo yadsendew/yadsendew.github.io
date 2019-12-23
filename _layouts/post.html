@@ -1,21 +1,11 @@
 ---
-#layout: default
+layout: default
 ---
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Yadsendew | {{ page.title }}</title>
-    <link rel="stylesheet" href="/assets/css/mdstyle.css">
-    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/P3/AD6f+gDrtUIAFhYXAAJt0QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMzMzAAAAAzERERMwAAAzERERETMAADMRERERMwAzMxEREREzMzMzERERETMzAzMRERERMzAAMzERERMzAAAzMxVRMzMAADMzIiIzMwAAM0RVVUQzAAAzRDVTRDMAADMzMzMzMwAAAzMzMzMwAAAAMzMzMwAAAAADMzMwAADwDwAA4AcAAMADAADAAwAAAAAAAAAAAACAAQAAwAMAAMADAADAAwAAwAMAAMADAADAAwAA4AcAAPAPAAD4HwAA" rel="icon" type="image/x-icon" />
-    </head>
-    <body>
-        <article class="markdown-body">
-            <h1>{{ page.title }}</h1>
-            <p>{{ page.date | date_to_string }} - {{ page.author }}</p>
 
-            {{ content }}
-        </article>
-    </body>
-</html>
+<link rel="stylesheet" href="/assets/css/mdstyle.css">
+<article class="markdown-body">
+    <h1>{{ page.title }}</h1>
+    <p>{{ page.date | date_to_string }} - {{ page.author }}</p>
+
+    {{ content }}
+</article>

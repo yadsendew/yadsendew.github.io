@@ -12,7 +12,6 @@ commonmark:
 exclude: [
   Gemfile,
   Gemfile.lock,
-  posts,
   markdown
 ]
 # Add variables here, it will access by {{ site.myvariable }}

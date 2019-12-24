@@ -4,20 +4,21 @@ layout: default
 
 <link rel="stylesheet" href="/assets/css/mdstyle.css">
 
-<div id="post-container">
-    <div id="table-of-contents">
-        <div class="title">
-
-        </div>
+<div class="post container">
+    <div class="post info">
         <h1>{{ page.title }}</h1>
-        <p>{{ page.date | date_to_string }} - {{ page.author }}</p>
+        <p>{{ page.date | date_to_string }} {{ page.author }}</p>
+    </div>
+
+    <div class="post toc">
         {% if page.ordered == true %}
-            {% include toc.html html=content ordered=true %}
+        {% include toc.html html=content ordered=true %}
         {% else %}
             {% include toc.html html=content %}
         {% endif %}
     </div>
-    <div id="post-content">
+
+    <div class="post content">
         <article class="markdown-body">
             {% include anchor_headings.html html=content %}
         </article>

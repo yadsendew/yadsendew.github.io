@@ -30,13 +30,38 @@
         background-color: #111;
       }
 }
-#post-container {
-  #table-of-contents {
-    float: left;
-    width: 20%;
+.post {
+  .info {
+    align-content: center;
+    text-align: center;
   }
-  #post-content {
+  .toc {
+    font-size: smaller;
+    float: left;
+    width: 200px;
+    height: 100%;
+    padding-left: 0em;
+    list-style-position: outside;
+  }
+  .content {
     float: left;
     width: 80%;
+  }
+  /* Clear floats after the columns */
+  .post:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .toc {
+      width: 400px;
+      display: flex;
+      justify-content: center;
+    }
+    .content {
+      width: 100%;
+    }
   }
 }

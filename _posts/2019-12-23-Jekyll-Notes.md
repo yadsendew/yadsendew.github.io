@@ -3,54 +3,30 @@ layout: post
 title: Jekyll Notes
 date: 2019-12-18:+0100
 ---
-<!-- vscode-markdown-toc -->
-* [Build](#Build)
-* [Liquid](#Liquid)
-	* [Objects:](#Objects:)
-	* [Tags:](#Tags:)
-	* [Filters:](#Filters:)
-* [Front Matter](#FrontMatter)
-* [Layouts - Bố cục:](#Layouts-Bcc:)
-* [Includes:](#Includes:)
-* [Current page highlighting](#Currentpagehighlighting)
-* [Data Files:](#DataFiles:)
-	* [Data file usage](#Datafileusage)
-* [Assets:](#Assets:)
-	* [Sass](#Sass)
-* [Blogging:](#Blogging:)
-	* [Posts:](#Posts:)
-	* [Layout for posts:](#Layoutforposts:)
-	* [List posts:](#Listposts:)
-
-<!-- vscode-markdown-toc-config
-	numbering=false
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
 {% raw %}
-
-## <a name='Build'></a>Build
+## Build
 
 We need Jekyll to build the site before we can view it:
 
 * `jekyll build` - Builds the site and outputs a static site to a directory called `_site`.
 * `jekyll serve` - Does the same thing except it rebuilds any time you make a change and runs a local web server at `http://localhost:4000`.
 
-## <a name='Liquid'></a>Liquid
+## Liquid
 
 Liquid is a templating language which has three main parts: objects, tags and filters.
 
-### <a name='Objects:'></a>Objects:
+### Objects:
 
 Objects tell Liquid where to output content. They’re denoted by double curly braces: `{{` and `}}`.
 
 ```
+{% raw %}
 {{ page.title }}
 ```
 
 Outputs a variable called `page.title` on the page.
 
-### <a name='Tags:'></a>Tags:
+### Tags:
 
 Tags create the logic and control flow for templates. They are denoted by curly braces and percent signs: `{%` and `%}`. For example:
 
@@ -64,7 +40,7 @@ Tags create the logic and control flow for templates. They are denoted by curly 
 
 Outputs the sidebar if `page.show_sidebar` is true.
 
-### <a name='Filters:'></a>Filters:
+### Filters:
 
 Filters change the output of a Liquid object. They are used within an output and are separated by a `|`. For example:
 
@@ -74,7 +50,7 @@ Filters change the output of a Liquid object. They are used within an output and
 
 Outputs `Hi`. 
 
-## <a name='FrontMatter'></a>Front Matter
+## Front Matter
 
 Front matter is used to set variables for the page. It sits between two triple-dashed lines at the top of a file. For example:
 
@@ -108,7 +84,7 @@ title: Home
 </html>
 ```
 
-## <a name='Layouts-Bcc:'></a>Layouts - Bố cục:
+## Layouts - Bố cục:
 
 Layouts live in a directory called `_layouts`
 To have `index.html` use layout `default`, set a `layout` variable in **front matter**. The layout will wrap around the content of the page `index.html`.
@@ -138,7 +114,7 @@ Create your `default` layout at `_layouts/default.html` with the following conte
 
 There’s **no front matter** and the content of the page is replaced with a `content` variable. `content` is a special variable which is replaced by content of `index.html`.
 
-## <a name='Includes:'></a>Includes:
+## Includes:
 
 The `include` tag allows you to **include content from another file** stored in an `_includes` folder.
 Create a file for the navigation at `_includes/navigation.html` with the following content:
@@ -166,7 +142,7 @@ Try using the `include` tag to add the navigation to` _layouts/default.html`:
 </html>
 ```
 
-## <a name='Currentpagehighlighting'></a>Current page highlighting
+## Current page highlighting
 
 Jekyll has useful variables available one of which is `page.url`, it returns current page's URL. Edit `_includes/navigation.html`:
 
@@ -181,11 +157,11 @@ Jekyll has useful variables available one of which is `page.url`, it returns cur
 </nav>
 ```
 
-## <a name='DataFiles:'></a>Data Files:
+## Data Files:
 
 Jekyll supports loading data from YAML, JSON, and CSV files located in a `_data` directory.
 
-### <a name='Datafileusage'></a>Data file usage
+### Data file usage
 
 YAML is a format that’s common in the Ruby ecosystem. You’ll use it to store an array of navigation items each with a `name` and `link`.
 At _data/navigation.yml, creates:
@@ -210,9 +186,9 @@ Instead of outputting each link in `_includes/navigation.html`, now you can iter
 </nav>
 ```
 
-## <a name='Assets:'></a>Assets:
+## Assets:
 
-### <a name='Sass'></a>Sass
+### Sass
 
 First create a Sass file at /assets/css/styles.scss with the following content:
 
@@ -246,9 +222,9 @@ Edit `_includes/navigation.html` to:
 
 You’ll need to reference the stylesheet in your layout. Add `<link rel="stylesheet" href="/assets/css/styles.css">` to `<head>` tag of `_layouts/default.html`
 
-## <a name='Blogging:'></a>Blogging:
+## Blogging:
 
-### <a name='Posts:'></a>Posts:
+### Posts:
 
 Blog posts live in a folder called `_posts`. The filename for posts have a special format: the publish date, then a title, followed by an extension. Create your first post at `_posts/2018-08-20-bananas.md` with: 
 
@@ -267,7 +243,7 @@ starch covered with a rind, which may be green, yellow, red, purple, or brown
 when ripe.
 ```
 
-### <a name='Layoutforposts:'></a>Layout for posts:
+### Layout for posts:
 
 Create it at _layouts/post.html with the following content. Notice this is an example of layout inheritance (from layout `default`):
 
@@ -281,7 +257,7 @@ layout: default
 {{ content }}
 ```
 
-### <a name='Listposts:'></a>List posts:
+### List posts:
 
 Jekyll makes posts available at `site.posts`. Create `blog.html` in your root (`/blog.html`) with the following content:
 
@@ -318,5 +294,4 @@ You also need a way to navigate to this page through the main navigation. Open `
 - name: Blog
   link: /blog.html
 ```
-
 {% endraw %}

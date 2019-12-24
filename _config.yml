@@ -1,7 +1,7 @@
 # After editing this configuration
 # Run bundle exec jekyll serve
 title: Phat Ng Luu
-markdown: CommonMarkGhPages
+markdown: kramdown
 commonmark:
   options: ["SMART", "FOOTNOTES"]
   extensions: ["strikethrough", "autolink", "table", "tagfilter"]
@@ -12,7 +12,6 @@ commonmark:
 exclude: [
   Gemfile,
   Gemfile.lock,
-  markdown
 ]
 # Add variables here, it will access by {{ site.myvariable }}
 # myvariable: 5

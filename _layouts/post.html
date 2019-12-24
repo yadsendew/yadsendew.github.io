@@ -3,9 +3,19 @@ layout: default
 ---
 
 <link rel="stylesheet" href="/assets/css/mdstyle.css">
-<article class="markdown-body">
-    <h1>{{ page.title }}</h1>
-    <p>{{ page.date | date_to_string }} - {{ page.author }}</p>
 
-    {{ content }}
-</article>
+<div class="post-body row">
+    <div class="column left">
+        <div class="title">
+
+        </div>
+        <h1>{{ page.title }}</h1>
+        <p>{{ page.date | date_to_string }} - {{ page.author }}</p>
+        {% include toc.html html=content ordered=true %}
+    </div>
+    <div class="column right">
+        <article class="markdown-body">
+            {% include anchor_headings.html html=content %}
+        </article>
+    </div>
+</div>

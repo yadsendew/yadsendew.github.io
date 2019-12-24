@@ -2,3 +2,10 @@ _site
 _site/*
 .DS_Store
 markdown/*
+assets/js/jquery.min.js
+assets/css/styles.scss
+assets/css/Navigation-Clean.css
+assets/css/styles.scss
+assets/bootstrap/js/bootstrap.min.js
+assets/bootstrap/css/bootstrap.min.css
+.DS_Store

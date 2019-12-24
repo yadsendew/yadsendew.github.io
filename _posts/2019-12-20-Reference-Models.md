@@ -1,11 +1,12 @@
 ---
 title: Reference Models
 date: 2019-12-20 18:51 +0100
+ordered: true
 ---
 
 Because of the many requirements that computer networks need to satisfy, communication in into these is subdivided into layers within reference models. The three popular reference models are the **TCP/IP model**, the **OSI reference model** and **hybrid reference model**.
 
-## 1. TCP/IP Reference Model
+## TCP/IP Reference Model
 
 It divides the tasks of communication into four consecutive layers. For each one of the four layers, multiple protocols do exist.  
 
@@ -18,13 +19,13 @@ Each layer adds additional header information to the message (see Figure 4.1). S
 
 **Hybrid reference model** is an extension of the TCP/IP model *split the Link Layer (Network Access Layer) into two layers* because they have entirely diﬀerent tasks.
 
-## 2. Hybrid Reference Model
+## Hybrid Reference Model
 
 The names of the top two layers and the tasks of the top three layers are identical to the layers of the TCP/IP reference model (see Figure 4.3). The Internet Layer in the TCP/IP reference model and the Network Layer in the hybrid reference model diﬀer only in the name.
 
 ![](/assets/img_15768796319012.jpg)
 
-### 2.1 Data Link Layer (4th Layer)
+### Data Link Layer (4th Layer)
 
 DDL do these tasks:
 
@@ -35,14 +36,14 @@ DDL do these tasks:
 * Detecting errors occur during the frames transmission, the DLL protocols **attach a checksum** to every frame, frames with **errors can detected and thrown away** by the receiver.
 * In the Data Link Layer, frames can only be exchanged **between network devices** that are **connected to the same physical network**. For diﬀerent physical networks: done by using Bridges and Switches (Multiport Bridges).
 
-### 2.2 Physical Layer (5th Layer)
+### Physical Layer (5th Layer)
 
 * The Physical Layer deals with the characteristics of the various transmission media. 
 * This layer is responsible for the transfer of ones and zeros. 
 * Here, the physical connection to the medium and the conversion of the data into signals takes place. 
 * Protocols of the physical layer deﬁne how many bits can be sent per second and whether the transmission can take place simultaneously in both directions.  
 
-### 2.3 Network Layer (= 3rd Layer = Internet Layer in TCP/IP model)
+### Network Layer (= 3rd Layer = Internet Layer in TCP/IP model)
 
 NL does these tasks:
 
@@ -50,7 +51,7 @@ NL does these tasks:
 * At the sender, the NL packs the segments of the Transport Layer into packets. At the receiver, the Network Layer detects and unpacks the Packets in the frames of the DDL.
 * Routers limit logical subnets. Forwarding packets on their way from the sender to the destination, which is called routing, is one task of this layer. Usually, the connectionless Internet Protocol (IP) is used. Each IP packet is independently routed to its destination, and the path is not recorded. Other Network Layer protocols such as IPX have been replaced mainly by IP.
 
-### 2.4 Transport Layer
+### Transport Layer
 
 The Transport Layer enables the transport of Segments between processes on diﬀerent devices via so-called end-to-end protocols.
 At the sender, the Transport Layer packs the data of the Application Layer into segments. At the receiver, the Transport Layer detects and unpacks the segments inside the packets from the Network Layer.
@@ -64,11 +65,11 @@ Connection-oriented communication enables ﬂow control and congestion control, 
 
 Examples of Transport Layer protocols are the connectionless User Datagram Protocol (UDP) and the connection-oriented Transport Control Protocol (TCP).
 
-### 2.5 Application Layer
+### Application Layer
 
 The Application Layer contains all protocols that interact with the user application programs (e.g., browser or email client). Here, the messages (e.g., HTML pages or emails) are located according to the respective Application Layer protocol. Examples: *HTTP, FTP, SMTP, POP3, DNS, SSH, and Telnet.*
 
-## 3. How Communication works
+## How Communication works
 
 The communication ﬂow is demonstrated by using the hybrid reference model (see Figure 4.4).  
 
@@ -78,6 +79,6 @@ The communication ﬂow is demonstrated by using the hybrid reference model (see
 In **horizontal communication**, sender and receiver each use the same protocol functions on the same layers (see Figure 4.2).  
 ![Figure 4.2](/assets/img_15768793427132.jpg)
 
-## 4. OSI Reference Model
+## OSI Reference Model
 
 ![](/assets/img_15768853864946.jpg)

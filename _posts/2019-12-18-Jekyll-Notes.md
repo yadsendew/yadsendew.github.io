@@ -1,9 +1,10 @@
 ---
-layout: post
 title: Jekyll Notes
-date: 2019-12-18:+0100
+date: 2019-12-18 00:00:00 Z
+layout: post
 ordered: true
 ---
+
 {% raw %}
 ## Build
 

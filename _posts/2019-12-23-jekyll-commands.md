@@ -1,7 +1,7 @@
 ---
-layout: post
 title: Jekyll Commands
-date: 2019-12-23 18:51 +0100
+date: 2019-12-23 17:51:00 Z
+layout: post
 ---
 
 ```terminal

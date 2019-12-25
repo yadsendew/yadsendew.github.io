@@ -1,17 +1,23 @@
-# After editing this configuration
-# Run bundle exec jekyll serve
+---
 title: Phat Ng Luu
+timezone: UTC
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
 markdown: kramdown
 commonmark:
-  options: ["SMART", "FOOTNOTES"]
-  extensions: ["strikethrough", "autolink", "table", "tagfilter"]
-
-
-# Exclude from processing
-# The following items will not be processed:
-exclude: [
-  Gemfile,
-  Gemfile.lock,
-]
-# Add variables here, it will access by {{ site.myvariable }}
-# myvariable: 5
+  options:
+  - SMART
+  - FOOTNOTES
+  extensions:
+  - strikethrough
+  - autolink
+  - table
+  - tagfilter
+exclude:
+- Gemfile
+- Gemfile.lock

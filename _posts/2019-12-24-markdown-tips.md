@@ -1,8 +1,9 @@
 ---
-layout: post
 title: Markdown Tips
-date: 2019-12-24 21:20 +0100
+date: 2019-12-24 20:20:00 Z
+layout: post
 ---
+
 # A collapsible section with markdown
 ```
 <details>

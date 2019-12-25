@@ -10,14 +10,16 @@ layout: default
         <p>{{ page.date | date_to_string }} {{ page.author }}</p>
     </div>
     <div class="container" style="width: 100%;">
-        <div class="toc">
-            {% if page.ordered == true %}
-            {% include toc.html html=content ordered=true %}
-            {% else %}
-                {% include toc.html html=content %}
-            {% endif %}
-        </div>
-    
+        <!-- if HTMLtoc is enable, show it! -->
+        {% if page.HTMLtoc != false  %}
+            <div class="toc">
+                {% if page.ordered == true %}
+                {% include toc.html html=content ordered=true %}
+                {% else %}
+                    {% include toc.html html=content %}
+                {% endif %}
+            </div>
+        {% endif %}
         <div class="content">
             <article class="markdown-body">
                 {% include anchor_headings.html html=content %}

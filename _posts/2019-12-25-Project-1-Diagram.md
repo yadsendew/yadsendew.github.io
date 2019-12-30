@@ -7,4 +7,4 @@ published: true
 ![](/assets/data-flow.jpg)
 ## UML class diagram
 
-![](/assets/uml-class-diagram.jpg)v
+![](/assets/uml-class-diagram.jpg)

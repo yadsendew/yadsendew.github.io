@@ -4,7 +4,7 @@ published: true
 
 ## Diagrams for project 1
 ## Data flow
-![](/assets/data-flow.jpg)
+![](/assets/img/data-flow.jpg)
 ## UML class diagram
 
-![](/assets/uml-class-diagram.jpg)
+![](/assets/img/uml-class-diagram.jpg)

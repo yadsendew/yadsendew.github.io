@@ -6,6 +6,7 @@ ordered: true
 ---
 
 {% raw %}
+
 ## Build
 
 We need Jekyll to build the site before we can view it:
@@ -296,4 +297,5 @@ You also need a way to navigate to this page through the main navigation. Open `
 - name: Blog
   link: /blog.html
 ```
+
 {% endraw %}

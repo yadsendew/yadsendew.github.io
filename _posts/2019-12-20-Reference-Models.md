@@ -10,12 +10,12 @@ Because of the many requirements that computer networks need to satisfy, communi
 
 It divides the tasks of communication into four consecutive layers. For each one of the four layers, multiple protocols do exist.  
 
-![Table 4.1](/assets/img_15768777463702.jpg)      
+![Table 4.1](/assets/img/img_15768777463702.jpg)      
 
 Each layer adds additional header information to the message (see Figure 4.1). Some protocols (e.g., Ethernet) add not only a header in the Link Layer but also a trailer at the end of the message. The receiver analyzes the header (and trailer) on the same layer (see Figure 4.2).  
 
-![](/assets/img_15768793732702.jpg)
-![Figure 4.2](/assets/img_15768793427132.jpg)
+![](/assets/img/img_15768793732702.jpg)
+![Figure 4.2](/assets/img/img_15768793427132.jpg)
 
 **Hybrid reference model** is an extension of the TCP/IP model *split the Link Layer (Network Access Layer) into two layers* because they have entirely diﬀerent tasks.
 
@@ -23,7 +23,7 @@ Each layer adds additional header information to the message (see Figure 4.1). S
 
 The names of the top two layers and the tasks of the top three layers are identical to the layers of the TCP/IP reference model (see Figure 4.3). The Internet Layer in the TCP/IP reference model and the Network Layer in the hybrid reference model diﬀer only in the name.
 
-![](/assets/img_15768796319012.jpg)
+![](/assets/img/img_15768796319012.jpg)
 
 ### Data Link Layer (4th Layer)
 
@@ -73,12 +73,12 @@ The Application Layer contains all protocols that interact with the user applica
 
 The communication ﬂow is demonstrated by using the hybrid reference model (see Figure 4.4).  
 
-![](/assets/img_15768851014228.jpg)
+![](/assets/img/img_15768851014228.jpg)
 
 **Vertical communication** describes the process in which the data passes through the layers of the reference model used. A message is packed layer by layer from the top layer to the bottom layer and extracted by the receiver in the reverse order from the bottom layer to the top layer. The sender adds a header to the data in each layer and a trailer in the Data Link Layer. These additional headers and trailers are analyzed and removed in the respective layers by the receiver. These operations are called encapsulation and de-encapsulation.
 In **horizontal communication**, sender and receiver each use the same protocol functions on the same layers (see Figure 4.2).  
-![Figure 4.2](/assets/img_15768793427132.jpg)
+![Figure 4.2](/assets/img/img_15768793427132.jpg)
 
 ## OSI Reference Model
 
-![](/assets/img_15768853864946.jpg)
+![](/assets/img/img_15768853864946.jpg)

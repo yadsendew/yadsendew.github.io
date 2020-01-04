@@ -2,6 +2,7 @@
 layout: post
 title: RESTful API
 date: 2020-01-04 21:37 +0000
+toc: true
 ---
 This post is retrieved from https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/. Only for personal purpose, non-commercial use.
 ## What is a REST API

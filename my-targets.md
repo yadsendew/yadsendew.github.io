@@ -1,5 +1,6 @@
 ---
-published: true
+layout: post
+title: My Targets
 ---
 ## My targets in 2020
 Reading:

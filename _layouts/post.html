@@ -11,10 +11,10 @@ layout: default
     </div>
     <div class="container" style="width: 100%;">
         <!-- if HTMLtoc is enable, show it! -->
-        {% if page.HTMLtoc != false  %}
+        {% if page.toc == true  or page.ordered == true or page.ordered == false %}
             <div class="toc">
                 {% if page.ordered == true %}
-                {% include toc.html html=content ordered=true %}
+                    {% include toc.html html=content ordered=true %}
                 {% else %}
                     {% include toc.html html=content %}
                 {% endif %}

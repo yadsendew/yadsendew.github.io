@@ -2,9 +2,13 @@
 title: Reference Models
 date: 2019-12-20 17:51:00 Z
 ordered: true
+toc: true
 ---
 
-Because of the many requirements that computer networks need to satisfy, communication in into these is subdivided into layers within reference models. The three popular reference models are the **TCP/IP model**, the **OSI reference model** and **hybrid reference model**.
+Because of the many requirements that computer networks need to satisfy, communication in into these is subdivided into layers within reference models. The three popular reference models are:  
+1. **TCP/IP model**
+2. **OSI model**
+3. **Hybrid model**
 
 ## TCP/IP Reference Model
 

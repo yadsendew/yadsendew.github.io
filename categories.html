@@ -10,3 +10,10 @@ layout: default
     {% endfor %}
   </ul>
 {% endfor %}
+# listing uncategory posts
+<h3>Uncategory</h3>
+{% for post in site.posts %}
+  {% if post.categories == "" %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endif %}
+{% endfor%}

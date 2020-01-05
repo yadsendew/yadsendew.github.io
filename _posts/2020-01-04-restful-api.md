@@ -1,8 +1,9 @@
 ---
 layout: post
 title: RESTful API
-date: 2020-01-04 21:37 +0000
+date: '2020-01-04 21:37 +0000'
 toc: true
+published: true
 ---
 This post is retrieved from https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/. Only for personal purpose, non-commercial use.
 ## What is a REST API
@@ -12,19 +13,19 @@ An API is a set of rules that allow programs to talk to each other. The develope
 REST determines how the API looks like. It stands for “Representational State Transfer”. It is a set of rules that developers follow when they create their API. One of these rules states that you should be able to get a piece of data (called a resource) when you link to a specific URL.
 
 Each URL is called a **request** while the data sent back to you is called a **response**.
-# The Anatomy Of A Request
+## The Anatomy Of A Request
 A request is made up of four things:
 * The endpoint
 * The method
 * The headers
 * The data (or body)
 
-## The Endpoint
+### The Endpoint
 The endpoint (or route) is the url you request for. It follows this structure: `root-endpoint/?`
 
 The **root-endpoint** is the starting point of the API you’re requesting from. The **root-endpoint** of Github’s API is https://api.github.com while the root-endpoint Twitter’s API is https://api.twitter.com.
 
-### Paths
+#### Paths
 The **path** determines the resource you’re requesting for. Think of it like an automatic answering machine that asks you to press 1 for a service, press 2 for another service, 3 for yet another service and so on.
 
 You can access paths just like you can link to parts of a website. For example, to get a list of all posts tagged under “JavaScript” on Smashing Magazine, you navigate to `https://www.smashingmagazine.com/tag/javascript/` :
@@ -36,7 +37,7 @@ To understand what paths are available to you, you need to look through the webs
 
 Any colons (`:`) on a path denotes a `variable`. You should replace these values with actual values of when you send your request. In this case, you should replace `:username` with the actual username of the user you’re searching for. If I’m searching for my Github account, I’ll replace `:username` with `zellwk`.
 The endpoint to get a list of my repos on Github is this: `https://api.github.com/users/zellwk/repos`.
-### Query Parameters
+#### Query Parameters
 The final part of an endpoint is query parameters. Technically, query parameters are not part of the REST architecture, but you’ll see lots of APIs use them. So, to help you completely understand how to read and use API’s we’re also going to talk about them. Query parameters give you the option to modify your request with key-value pairs. They always begin with a question mark (`?`). Each parameter pair is then separated with an ampersand (`&`), like this: `?query1=value1&query2=value2`.
 
 When you try to get a list of a user’s repositories on Github, you add three possible parameters to your request to modify the results given to you:
@@ -47,7 +48,7 @@ If you’d like to get a list the repositories that I pushed to recently, you ca
 https://api.github.com/users/zellwk/repos?sort=pushed
 ```
 How do you know if this endpoint works? Well, it’s time to give it a try!
-# Testing Endpoints With Curl
+## Testing Endpoints With Curl
 
 You can send a request with any programming language. JavaScript users can use methods like the [Fetch API](https://css-tricks.com/using-fetch/) and [jQuery’s Ajax](http://api.jquery.com/jquery.ajax/) method; Ruby users can use [Ruby’s Net::HTTP class](http://ruby-doc.org/stdlib-2.4.2/libdoc/net/http/rdoc/index.html), Python users can use [Python Requests;](http://docs.python-requests.org/en/master/) and so on.
 
@@ -75,7 +76,7 @@ If you wish to include query parameters with cURL, make sure you prepend a backs
 curl https://api.github.com/users/zellwk/repos\?sort\=pushed
 ```
 Try using either commands and perform a request! You’ll get a similar response to what you’ve seen with Github’s root-endpont (but with a lot more data).
-# JSON
+## JSON
 JSON (JavaScript Object Notation) a common format for sending and requesting data through a REST API. The response that Github sends back to you is also formatted as JSON.
 
 A JSON object looks like a JavaScript Object. In JSON, each property and value must be wrapped with double quotation marks, like this:
@@ -86,7 +87,7 @@ A JSON object looks like a JavaScript Object. In JSON, each property and value m
   "property3": "value3"
 }
 ```
-# Back To The Anatomy Of A Request
+## Back To The Anatomy Of A Request
 
 You’ve learned that a request consists of four parts.
 
@@ -98,7 +99,7 @@ You’ve learned that a request consists of four parts.
 
 Let’s go through the rest of what makes up a request.
 
-## The Method
+### The Method
 
 The method is the type of request you send to the server. You can choose from these five types below:
 
@@ -137,7 +138,7 @@ Try running this request. You’ll get a response that tells you that authentica
   "documentation_url": "https://developer.github.com/v3"
 }
 ```
-## The Headers
+### The Headers
 Headers are used to provide information to both the client and server. It can be used for many purposes, such as authentication and providing information about the body content. You can find a list of valid headers on MDN’s HTTP Headers Reference.
 
 HTTP Headers are property-value pairs that are separated by a colon. The example below shows a header that tells the server to expect JSON content.
@@ -156,7 +157,7 @@ curl -H "Content-Type: application/json" https://api.github.com -v
 ```
 ![](/assets/img/2020-01-04-23-47-21.png)
 Here, `*` refers to additional information provided by cURL. `>` refers to request headers, and `<` refers to the response headers.
-## The Data (Or “Body”)
+### The Data (Or “Body”)
 The data (sometimes called “body” or “message”) contains information you want to be sent to the server. This option is only used with `POST`, `PUT`, `PATCH` or `DELETE` requests.
 
 To send data through cURL, you can use the `-d` or `--data` option:
@@ -203,7 +204,7 @@ And that is (almost!) everything you need to know about the structure of a reque
 
 Now, remember when you tried to send a `POST` request through Github’s API, you got a message that says “Requires authentication”? Well, that’s because you’re not authorized to perform the `POST` request!
 
-# Authentication
+## Authentication
 
 You wouldn’t allow anyone to access your bank account without your permission, would you? On the same line of thought, developers put measures in place to ensure you perform actions only when you’re authorized to do. This prevents others from impersonating you.
 
@@ -230,7 +231,7 @@ With the knowledge you’ve learned so far, you should be able to edit the code 
 
 Now, let’s talk about HTTP Status codes and error messages.
 
-# HTTP Status Codes And Error Messages
+## HTTP Status Codes And Error Messages
 Some of the messages you’ve received earlier, like “Requires authentication” and “Problems parsing JSON” are error messages. They only appear when something is wrong with your request. HTTP status codes let you tell the status of the response quickly. The range from 100+ to 500+. In general, the numbers follow the following rules:
 
 1. 200+ means the request has succeeded.
@@ -244,7 +245,7 @@ For example, if you tried adding `-I` to a `POST` request without providing your
 If your request is invalid because your data is wrong or missing, you usually get a 400 status code (Bad Request).
 ![](/assets/img/2020-01-05-00-05-06.png)
 To get more information about specific HTTP status codes, you may want to consult MDN’s HTTP Status Reference.
-# API Versions
+## API Versions
 Developers update their APIs from time to time. Sometimes, the API can change so much that the developer decides to upgrade their API to another version. If this happens, and your application breaks, it’s usually because you’ve written code for an older API, but your request points to the newer API.
 
 You can request for a specific API version in two ways. Which way you choose depends on how the API is written.
@@ -262,9 +263,8 @@ Github, on the other hand, uses the second method. At the time of writing, Githu
 ```
 curl https://api.github.com -H Accept:application/vnd.github.v3+json
 ```
-# Wrapping Up
+## Wrapping Up
 
 In this article, you learned what a REST API is and how to use cURL to perform a request with `GET`, `POST`, `PUT`, `PATCH` and `DELETE` methods. In addition, you also learned how to authenticate your requests with the `-u` option, and what HTTP statuses mean.
 
 I hope this article has helped you learn enough about REST APIs, and you can use them fluently as you create your applications. Feel free to pop over to my blog or leave your comments below if you have any questions.
-

@@ -3,7 +3,7 @@ published: true
 layout: post
 title: Project 1 Diagram
 date: 2019-12-25 19:09 +0100
-categories: "Project Java"
+categories: ["Project Java"]
 ---
 
 ## Diagrams for project 1

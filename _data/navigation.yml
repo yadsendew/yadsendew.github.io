@@ -1,16 +1,16 @@
-- name: Home
+- name: home
   link: /
-- name: About
+- name: about
   link: /about.html
-- name: Posts
+- name: posts
   link: /posts.html
-- name: Categories
+- name: categories
   link: /categories.html
-- name: Tags
+- name: tags
   link: /tags.html
-- name: Admin
+- name: admin
   link: /admin.html
-- name: PDF
+- name: pdf
   link: /pdf.html
-- name: My Targets
+- name: my targets
   link: /my-targets.html

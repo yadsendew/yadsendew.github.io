@@ -6,29 +6,32 @@
     margin: 0;
 }
 .navigation {
+    margin-left: auto;
+    font-family: 'News Cycle', sans-serif;
     ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: #333;
-      }
-      
-      li {
-        float: left;
-      }
-      
-      li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 6px 10px;
-        text-decoration: none;
-      }
-      
-      li a:hover {
-        background-color: #111;
-      }
+        background-color: steelblue;
+    }
+    
+    li {
+      float: left;
+    }
+    
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 8px 12px;
+      text-decoration: none;
+    }
+    
+    li a:hover {
+      background-color: white;
+      color: black;
+    }
 }
 .post {
   .info {

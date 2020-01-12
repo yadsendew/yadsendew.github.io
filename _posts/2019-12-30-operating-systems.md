@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Operating Systems Notes
+title: Operating Systems
 date: 2019-12-30 21:21 +0000
 categories: [Learning]
 tags: [Operating Systems]
@@ -117,8 +117,7 @@ For developing cluster applications, libraries exist, which provide hardware-ind
 * Popular message passing systems:
   * Message Passing Interface (MPI) ⇒ standard solution 
   * Parallel Virtual Machine (PVM) ⇒ dead  
-
-![](/assets/img/2020-01-11-12-54-44.png)
+![](/assets/img/2020-01-12-21-47-13.png)
 ### Kernel Architectures
 Kernel = essential functions of OS + interface to the hardware  
 Diﬀerent kernel architectures exist

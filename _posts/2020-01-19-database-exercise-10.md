@@ -124,5 +124,8 @@ WHERE C>4;
     a. Displays the same as DEPT_SUMMARY
     b. For each department has total salary > 100000. Displays department number and total emps
     c. For each department has total employee > total employee of department #4. Displays department number and average salary.
+
+    Can not update or delete when the view use GROUP BY
+    
     d. In DEPT_SUMMARY, change department 4 to department 3
     e. Delete all departments which have total emp > 4

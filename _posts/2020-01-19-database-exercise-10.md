@@ -15,22 +15,27 @@ add constraint employee_sssn_fk
 foreign key (superssn)
 references employee(ssn) on delete set null;
 ```
+`on delete restrict`  
+`on delete cascade`
 
 ## b
 ```sql
 DELETE FROM EMPLOYEE 
 WHERE Lname = 'Borg'
 ```
-
+Delete Mr. Borg managers and his employees
 
 ## c
  Imo, cascade is better, after deleting parent, the child will not be appeared => Easy to see
 
 # 2
+This simply duplicates the existed table to a new table.
 ```
 CREATE employee_backup
 AS SELECT * FROM employee;
-How about this?
+```
+This will copy all rows from a table to a table. Two table have been created and have the same structure.
+```
 SELECT * INTO employee_backup
 FROM employee;
 ```

@@ -2,6 +2,7 @@
 title: Reference Models
 date: 2019-12-20 17:51:00 Z
 ordered: true
+categories: ["Computer Networks"]
 ---
 
 Because of the many requirements that computer networks need to satisfy, communication in into these is subdivided into layers within reference models. The three popular reference models are:  

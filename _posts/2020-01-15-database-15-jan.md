@@ -2,6 +2,7 @@
 layout: post
 title: Database 15 Jan
 date: 2020-01-15 09:12 +0000
+categories: ["Database"]
 ---
 ### Outter, Inner JOIN
 https://stackoverflow.com/questions/38549/what-is-the-difference-between-inner-join-and-outer-join?rq=1

@@ -2,6 +2,7 @@
 layout: post
 title: Database Exercise 10
 date: 2020-01-15 09:12 +0000
+categories: ["Database"]
 publish: true
 toc: true
 ---

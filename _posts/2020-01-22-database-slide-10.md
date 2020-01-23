@@ -106,6 +106,7 @@ missing...
 ## [Second Normal Form](/assets/img/2020-01-23-13-41-29.png)
 ## [Third Normal Form](/assets/img/2020-01-23-13-42-49.png)
 ## Normal forms defined informally
+
 * 1NF: All attributes depend on the key
 * 2NF: All attributes depend on the whole key
 * 3NF: All attributes depend on nothing but the key

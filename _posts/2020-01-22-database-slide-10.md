@@ -99,6 +99,7 @@ missing...
     * **based on multi-valued** dependencies : MVDs;
 * 5NF
     * **based on join** dependencies : JDs
+
 ## [Practical Use of Normal Forms](/assets/img/2020-01-23-13-37-17.png)
 ## [Definitions of Keys and Attributes Participating in Keys](/assets/img/2020-01-23-13-38-31.png)
 ## [First Normal Form](/assets/img/2020-01-23-13-40-27.png)

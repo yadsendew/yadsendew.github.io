@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: PDF
 ---
 [Software Engineering Practitioner’s Approach](/assets/pdf/Software Engineering Practitioner’s Approach  by Roger S. Pressman .pdf)

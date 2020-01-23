@@ -22,3 +22,4 @@ commonmark:
 exclude:
 - Gemfile
 - Gemfile.lock
+- _test

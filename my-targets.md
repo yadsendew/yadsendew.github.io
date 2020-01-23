@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: My Targets
 ---
 ## My targets in 2020

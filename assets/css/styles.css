@@ -1,0 +1,31 @@
+.container {
+    padding-top: 80px;
+  }
+
+@media (min-width:768px) {
+.col-md-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    font-size: small;
+}
+}
+
+@media (min-width:768px) {
+.col-md-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin: 10px 10px 10px 10px;
+    font-size: small;
+    text-align: left;
+}
+}
+
+.img-fluid {
+max-width: 80%;
+height: auto;
+}
+#current-link {
+    color: #00335b;
+}

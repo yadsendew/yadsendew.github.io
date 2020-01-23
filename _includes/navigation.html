@@ -1,7 +1,17 @@
-<nav class="navigation">
-  <ul >
-      {% for item in site.data.navigation %}
-      <li {% if page.url == item.link %}class="current"{% endif %}><a href="{{ item.link }}">{{ item.name }}</a></li>
-      {% endfor %}
-  </ul>
+<nav class="navbar navbar-light navbar-expand-sm fixed-top text-monospace shadow-lg" style="padding-top: 3px;padding-bottom: 3px;margin-top: 0;margin-bottom: 0;height: 30;background-color: rgb(255,255,255);">
+  <div class="container-fluid"><a class="navbar-brand" href="#" style="filter: blur(0px);font-size: 15;padding-top: 0;padding-bottom: 0;font-family: ABeeZee, sans-serif;">yadsendew</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div
+      class="collapse navbar-collapse justify-content-center" id="navcol-1" style="filter: blur(0px);">
+      <ul class="nav navbar-nav">
+        {% for item in site.data.navigation %}
+        <!--
+          <li {% if page.url == item.link %}class="current"{% endif %}><a href="{{ item.link }}">{{ item.name }}</a></li>
+        -->
+        <li class="nav-item" role="presentation">
+          <a {% if page.url == item.link %}id="current-link"{% endif %} class="nav-link" href="{{ item.link }}" style="padding-top: 0;padding-bottom: 0;">{{ item.name }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
 </nav>

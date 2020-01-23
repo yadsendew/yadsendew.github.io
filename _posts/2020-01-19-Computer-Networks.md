@@ -62,3 +62,26 @@ IPv4 addresses have a length of 32 bits => 2^32 addresses
 ![](/assets/img/2020-01-21-12-09-11.png)
 ![](/assets/img/2020-01-21-12-10-04.png)
 ### Drawback: 
+* It is impossible to dynamically adjust them 
+* Many addresses are wasted
+
+
+        Solution: Logical networks are divided into **subnets**
+## Subnet Mask
+For creating subnets, a subnet mask is required
+* All hosts in a network have a subnet mask assigned
+  * Length: 32 bits (4 bytes) 
+  * It is used to specify the number of subnets and hosts
+* Subnet mask **splits** the _host ID of an IP address_ into **subnet ID** and **host ID**
+    * The **network ID** remains **unchanged**
+    * The network mask **adds** another **level** **of hierarchy** into the IP address
+![From](/assets/img/2020-01-21-12-32-56.png) ![To](/assets/img/2020-01-21-12-33-31.png)
+* Structure of the subnet mask:
+    * 1-bits indicate, which part of the address space is used for subnet IDs 
+    * 0-bits indicate, which part of the address space is used for host IDs
+    ![](/assets/img/2020-01-21-12-35-45.png)
+### Calculation example for subnetting with IPv4
+Consider IP address: `172.21.240.90/27`.  
+The `27` behind the `/` is **number of 1-bits in the subnet mask**.   
+`Subnet_Address = IP_Address AND Subnet_Mask`  
+`Host_ID = IP_Address AND (NOT Subnet_Mask)`

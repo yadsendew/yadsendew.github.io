@@ -15,6 +15,8 @@ Two levels of relational schemas:
 The design is concerned mainly with **base relations**
 * We will discuss **_four informal guidelines_** that may be used as **measures** to determine the **quality of relation schema design**  
 * Then discussing the **_formal theory of relational database design_**
+
+
 # Four informal guidelines for a "good" Relational Databases Design
 ## Semantics of the _**Relation Attributes**_
 In general, **the easier** it is to explain the semantics of the relation, **the better** the relation schema design will be.

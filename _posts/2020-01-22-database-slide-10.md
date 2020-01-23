@@ -115,14 +115,14 @@ missing...
 ## [SUMMARY OF NORMAL FORMS based on Primary Keys](/assets/img/2020-01-23-13-47-25.png)
 
 # General Normal Form Definitions (For Multiple Keys)
-![](/assets/img/2020-01-23-13-52-47.png)
-![](/assets/img/2020-01-23-13-53-19.png)
+[def 1](/assets/img/2020-01-23-13-52-47.png)  
+[def 2](/assets/img/2020-01-23-13-53-19.png)
 [Successive Normalization of LOTS into 2NF and 3NF](/assets/img/2020-01-23-13-55-01.png)
 
 # BCNF (Boyce-Codd Normal Form)
-![](/assets/img/2020-01-23-13-56-21.png)
-![](/assets/img/2020-01-23-13-56-50.png)
-![](/assets/img/2020-01-23-13-57-12.png)
+[def](/assets/img/2020-01-23-13-56-21.png)  
+[example 1](/assets/img/2020-01-23-13-56-50.png)  
+[example 2](/assets/img/2020-01-23-13-57-12.png)  
 ## Achieving the BCNF by Decomposition
 [image 1](/assets/img/2020-01-23-13-57-32.png)  
 [image 2](/assets/img/2020-01-23-13-57-50.png)

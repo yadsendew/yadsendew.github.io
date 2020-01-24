@@ -8,8 +8,6 @@
   link: /categories.html
 - name: tags
   link: /tags.html
-- name: admin
-  link: /admin.html
 - name: pdf
   link: /pdf.html
 - name: my targets

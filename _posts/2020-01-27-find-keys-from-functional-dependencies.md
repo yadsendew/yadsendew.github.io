@@ -21,7 +21,6 @@ Using above trick, **every key must include** both `C` and `D`.
 3. **If success**, we have a **superkey**.
 4. **Repeat step 2** for **received superkey** to see if any more superkey?
 
-
 **FULL EXAMPLE:**
 
 All superkeys must contain `C` and `D`
@@ -34,3 +33,8 @@ All superkeys must contain `C` and `D`
   * `BCD` (From `ABCD`. Remove `A`. Reinsert A from `DE -> A`)
 * Some set are not attributes:
   * `CD`: From `CDE`, remove `E` and cannot reinsert `E` from given FDs.
+
+## To find candidate keys
+The **candidate key** is the **superkey** that we **cannot take anymore attributes away** from it.  
+    
+    So, `CDE`, `ACD` and `BCD` are candidate keys.

@@ -6,8 +6,18 @@ categories: "Database"
 ---
 ## Definition
 ![](/assets/img/2020-01-30-14-04-02.png)
-## Finding a minimal cover `E` of `F`
-![](/assets/img/2020-01-30-14-08-08.png)
+## Finding a minimal cover
+Call the set `E` is minimal cover of set `F`.  
+Initially `E=F` 
+* Step 1: **rewrite each FD** that has `m attributes` **on the RHS** into `m FDs` where the **RHS is a single attribute**.
+
+* Step 2: remove trivial FDs.
+
+* Step 3: minimize LHS of each FD  
+**For each FD** `X -> y` in `E`, and **for each attribute** `x ∈ X`, if `X – {x} -> y` is implied by `E`, then **replace** `X -> y` with `X - {x} -> y`.
+
+* Step 4: **remove redundant FDs**  
+  **For each FD** in `E`, if it is **implied by other FDs** in `E`, then **remove** it from `E`.
 ## Example 
 Suppose:  
 ```

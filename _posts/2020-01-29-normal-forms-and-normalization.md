@@ -6,8 +6,8 @@ categories: "Database"
 ---
  
 
-Previous: [Functional Dependencies](link)  | Next: [Lossless and FD-preserving decomposition](https://yadsendew.github.io/database/2020/01/29/lossless-and-fd-preserving-decomposition.html)
----------|----------
+Previous: [Functional Dependencies](link)  
+Next: [Lossless and FD-preserving decomposition](https://yadsendew.github.io/database/2020/01/29/lossless-and-fd-preserving-decomposition.html)  
 _This post is retrieved from [this](http://www.ict.griffith.edu.au/~jw/normalization/assets/Functional%20Dependencies%20and%20Normalization.pdf)_
 <hr>
 
@@ -37,7 +37,4 @@ When tables is **not in 2NF** (or 3NF, BCNF), we can **decompose** tables into s
 ### Approach:
 For each FD `A -> b` that **violates** the normal form, we **decompose** `R` into `R1 = (A, b)`, and `R2=(R-{b})`. This process is **repeated until all tables are in the normal form**.  [See example](/assets/img/2020-01-29-20-36-34.png)  
 
-<hr>
-
-Previous: [Functional Dependencies](link) | Next: [Lossless and FD-preserving decomposition](link)
----------|----------
+Normalize 3NF with [Lossless and FD-preserving decomposition](https://yadsendew.github.io/database/2020/01/29/lossless-and-fd-preserving-decomposition.html)  

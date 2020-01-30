@@ -6,7 +6,7 @@ categories: "Database"
 ---
  
 
-Previous: [Functional Dependencies](link)  
+Previous: [Functional Dependencies](https://yadsendew.github.io/database/2020/01/30/functional-dependencies.html)  
 Next: [Lossless and FD-preserving decomposition](https://yadsendew.github.io/database/2020/01/29/lossless-and-fd-preserving-decomposition.html)  
 _This post is retrieved from [this](http://www.ict.griffith.edu.au/~jw/normalization/assets/Functional%20Dependencies%20and%20Normalization.pdf)_
 <hr>

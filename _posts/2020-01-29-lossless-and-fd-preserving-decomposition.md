@@ -18,7 +18,7 @@ If both `A` and `B` are attributes in `Ri`, and `A -> B` is implied by F, then `
 * But we may not be able to decompose a table into BCNF with both of these properties.
 
 ### An algorithm for decomposing a table into 3NF with lossless and FD-preserving
-1. Find the [minimal cover](link) of `F`. Suppose it is `E`.
+1. Find the [minimal cover](https://yadsendew.github.io/database/2020/01/30/minimal-cover-of-a-set-of-functional-dependencies.html) of `F`. Suppose it is `E`.
 2. For each FD `A -> b` in `E`, if `b` is a `non-key attribute`, have a table `(A,b)`, where `A` is the `primary key`.
 3. _(optional)_ **Merge tables** that have **identical** `primary key`.
 4. Have a table `R-B`, where `B` is the set of `non-key attributes` that **appeared on the RHS** of some FD in `E`.

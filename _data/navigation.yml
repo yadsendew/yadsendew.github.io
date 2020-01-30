@@ -10,5 +10,7 @@
   link: /tags.html
 - name: pdf
   link: /pdf.html
+- name: tools
+  link: /tools.html  
 - name: my targets
   link: /my-targets.html

@@ -67,6 +67,7 @@ IPv4 addresses have a length of 32 bits => 2^32 addresses
 
 
         Solution: Logical networks are divided into **subnets**
+
 ## Subnet Mask
 For creating subnets, a subnet mask is required
 * All hosts in a network have a subnet mask assigned

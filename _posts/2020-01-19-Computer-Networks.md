@@ -58,15 +58,13 @@ With Anycast, a **single receiver of a group** can be reached via a **single add
 
 ## Format of IP Address
 IPv4 addresses have a length of 32 bits => 2^32 addresses  
-
-![](/assets/img/2020-01-21-12-09-11.png)
-![](/assets/img/2020-01-21-12-10-04.png)
+[Classes of IPv4 & Their structure](/assets/img/2020-01-21-12-09-11.png)  
+[Prefix of classes](/assets/img/2020-01-21-12-10-04.png)
 ### Drawback: 
 * It is impossible to dynamically adjust them 
-* Many addresses are wasted
+* Many addresses are wasted  
 
-
-        Solution: Logical networks are divided into **subnets**
+`Solution: Logical networks are divided into SUBNET`
 
 ## Subnet Mask
 For creating subnets, a subnet mask is required
@@ -86,3 +84,40 @@ Consider IP address: `172.21.240.90/27`.
 The `27` behind the `/` is **number of 1-bits in the subnet mask**.   
 `Subnet_Address = IP_Address AND Subnet_Mask`  
 `Host_ID = IP_Address AND (NOT Subnet_Mask)`
+
+### Private Network
+`10.0.0.0/8`  
+`172.16.0.0/12`  
+`192.168.0.0/16`  
+Private network address space are not allow to interfere with global internet => they are not routed in the Internet.
+## Structure of IPv4 packets
+This Network Layer transfer the IPv4 packets.  
+[Structure of IPv4](/assets/pdf/IPv4 Structure.pdf)  
+![](/assets/img/2020-02-01-13-57-05.png)  
+
+* Version: 4 bits
+* IHL: 4 bits
+* Differentiated services: 8 bits
+* Total length (16 bits)
+* Identification (16 bits)
+* Flags (3 bits)
+* Fragment Offset (13 bits)
+* Time To Live (8 bits)
+* Protokoll ID (8 bits)
+* Header checksum (16 bits)
+* IP address (sender) (32 bits)
+*  IP address (destination) (32bits)
+*  Options / Padding can contain additional information such as a time stamp, this last field before the payload area is filled with padding bits (0 bits) if necessary, to ensure that the header size is an integer number of 32 bit words
+*  Payload: data from the transport layer
+
+## Packet fragmentation
+* Mỗi packet có kích thước khác nhau và chúng lại khá lớn. Mà **phương tiện truyền dẫn** thì có những hạn chế của nó: không đủ khả năng để truyền một packet trong một lần, mà phải tách nhỏ ra để truyền.  
+* Việc tách ra (và ghép lại) của một IP packets thành các packet nhỏ hơn (fragments) được gọi là **Packet fragmentation**.   
+* The **Maximum Transmission Unit** (MTU) speciﬁes the **maximum payload of a frame** = **maximum size** of **an IP packet**. [Details](/assets/img/Details.png)  
+* IP packets contain **a ﬂag** which can be **used to prohibit fragmentation**
+  * If a Router needs to fragment but the fragmentation is prohibitedt, the Router discards.
+* If network device does **not receive all fragments of an IP packet within** a certain **period of time** => **discards all received fragments**  
+
+[Packet fragmentation example](assets/pdf/Packet Fragmentation Example.pdf)
+
+## [IPv6](assets/pdf/IPv6.pdf)

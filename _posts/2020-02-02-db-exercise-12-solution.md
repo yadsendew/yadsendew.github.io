@@ -29,7 +29,9 @@ In the two fields in REFRIG: M -> MP and MP -> C. Since neither M nor MP is a su
 1. `M -> Y, P` is **not existed** in F+
 2. `M -> MP, C` is **existed** in F+ => lossless decomposition
 
-![](/assets/img/2020-02-02-20-34-45.png)
+![](/assets/img/2020-02-02-20-34-45.png)  
+
+
 **Answer:**
 
 a.  

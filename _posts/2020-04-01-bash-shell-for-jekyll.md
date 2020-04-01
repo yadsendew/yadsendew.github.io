@@ -22,7 +22,7 @@ Requirements:
       `> buff`
       `tail -1 buff | cut -d '/' -f 2`
     
-    - Case 2: create error - existed
+    - Case 2: create errvor - existed
       `2> buff`
       `head -1 buff | cut -d '/' -f 2`
   
@@ -52,4 +52,35 @@ Requirements:
 git add *
 git commit -m "Upload $title"
 git push origin master
+```
+
+# Full code
+
+```bash
+#!/bin/sh
+cd /Users/steven/Github/yadsendew.github.io
+printf "Post title: " && read title
+bundle exec jekyll post $title > stdout 2> stderr
+if [ -s stderr ] #If error occurs
+then
+	postname=$(head -1 stderr | cut -d '/' -f 2 | cut -d '.' -f 1)
+	postname=$(echo ${postname}.md)
+else
+	postname=$(tail -1 stdout | cut -d '/' -f 2 | cut -d '.' -f 1)
+	postname=$(echo ${postname}.md)
+fi
+rm stdout > /dev/null
+rm stderr > /dev/null
+read -r -p "Push? [y/N] " response
+
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+	cd _posts
+	sed -i '' 's|/Users/steven/Github/yadsendew.github.io/_posts/||g' $postname
+	cd /Users/steven/Github/yadsendew.github.io
+	path=$(echo _posts/${postname})
+	git add $path
+	git commit -m "Upload $title"
+	git push origin master
+fi
 ```

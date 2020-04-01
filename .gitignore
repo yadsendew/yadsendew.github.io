@@ -6,3 +6,8 @@ _site/*
 Gemfile
 Gemfile.lock
 test/
+stderr2
+stderr3
+stdout
+stdout
+stdout
